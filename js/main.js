@@ -1,4 +1,13 @@
-let images = [
+import '../css/style.scss';
+import { imageParse } from './image.js';
+import { audioParse } from './audio.js';
+import { videoParse } from './video.js';
+
+imageParse();
+audioParse();
+videoParse();
+
+/* let images = [
     { img: '1.jpg', name: 'Мельница у реки' },
     { img: '2.jpg', name: 'Горы осенью' },
     { img: '3.jpg', name: 'Деревня летом' },
@@ -12,7 +21,7 @@ let images = [
 let regexpimg = /\.(png|jpg?g|gif)$/;
 let regexaudio = /\.mp3$/;
 let content = document.querySelector('.content');
-console.log(content);
+
 images.forEach(el => {
     if (regexpimg.test(el.img)) {
         content.insertAdjacentHTML('beforeend',
@@ -24,4 +33,4 @@ images.forEach(el => {
         content.insertAdjacentHTML('beforeend',
             `<div class="block"><video class="media" controls><source src='../media/video/${el.img}'></video><p>${el.name}</p></div>`);
     }
-    });
+    }); */
