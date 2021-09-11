@@ -21,7 +21,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png|jpg?g|gif|mp3|mp4)$/i,
+                test: /\.(mp3|mp4)$/i,
                 use: [
                     {
                       loader: 'file-loader',
@@ -30,7 +30,31 @@ module.exports = {
                       },
                     },
                   ],
-        },
+            },
+            
+            {
+                test: /\.(png|jpg?g|gif)$/i,
+                use: [
+                    // {
+                    //     loader: 'file-loader',
+                    //     options: {
+                    //       name: '[path][name].[ext]',
+                    //     },
+                    //   },
+                    {
+                        loader: 'img-optimize-loader',
+                        options: {
+                            name: '[path][name].[ext]',
+                            compress: {
+                                mode: 'high',
+                                webp: false,
+                                gifsicle: true,
+                                disableOnDevelopment: false,
+                            },
+                        },
+                    },
+                ],
+            },
             {
                 test: /\.css$/,
                 use: [cssExtractPlugin.loader, 'css-loader']
